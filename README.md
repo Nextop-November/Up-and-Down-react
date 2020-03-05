@@ -1,6 +1,11 @@
 # Up and Down React
 오르락 내리락 프론트 엔드
  
+변수 : Camel Case
+
+Styled component : Pascal Case
+
+
 ### 변경점
 - **2019-2-27**     
 MainView.js 추가(Main Index)    

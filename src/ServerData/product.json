@@ -1,0 +1,14 @@
+{
+    "product":{
+    "id" : "product index",
+    "name" : "product name ",
+    "price" : {
+        "high":100,
+        "current":70,
+        "low":30
+    }
+    ,
+    "category" : ["tag1", "tag2"],
+    "imageLink" : "http://"
+    }
+}

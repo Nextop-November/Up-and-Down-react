@@ -6,36 +6,13 @@ import * as queryParser from 'query-string';
 
 
 
-const GlobalStyle = createGlobalStyle`
-    @import url("../font/NanumSquare/nanumsquare.css");
-    html {
-        margin: 0 auto;
-        background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
-        background-repeat:no-repeat;
-        background-size : auto;
-        height:100%;
-        width : 100%;
-
-        text-align : center;
-  }
-  body {
-        font-family: 'NanumSquare', sans-serif;
-
-        position:absolute;
-
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-70%);
-
-  }
-`
 
 const Container = styled.div`
-  position:relative;
-  left:50%;
-  transform:translateX(-50%);
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-70%);
 `;
-
 
 const TitleImg = styled.img`
     width: 500px;
@@ -47,8 +24,7 @@ const InputForm = styled.div`
 
 `;
 
-
-const SearchWord = styled.input`
+const QueryInput = styled.input`
     background-color: rgba(0,0,0,0);
     border-style:solid;
     border-radius : 100px;
@@ -67,21 +43,19 @@ const SearchWord = styled.input`
     }
 `;
 
-const Submit = styled.input`
-
-position:relative;
-top:50%;
-transform:translateY(25%);
-
-background-image : url(${SearchIcon}); 
-background-color:rgba(0,0,0,0);
-background-repeat:no-repeat;
-background-size:100%;
-border: none;
-cursor: pointer;
-width : 45px;
-height : 45px;
-margin-left:7px;
+const SearchButton = styled.input`
+    position:relative;
+    top:50%;
+    transform:translateY(25%);
+    background-image : url(${SearchIcon}); 
+    background-color:rgba(0,0,0,0);
+    background-repeat:no-repeat;
+    background-size:100%;
+    border: none;
+    cursor: pointer;
+    width : 45px;
+    height : 45px;
+    margin-left:7px;
 `;
 
 class MainView extends Component {
@@ -112,13 +86,11 @@ class MainView extends Component {
 
      render() {
         return (
-            
             <Container>
-                <GlobalStyle />
                 <TitleImg src={logo}/>
                 <InputForm>
-                    <SearchWord id='query' autoComplete='off' type='text'onKeyUp={this.SearchQuery} onChange={this.QueryState}/>
-                    <Submit onClick="search" type='button'/> 
+                    <QueryInput id='query' autoComplete='off' type='text'onKeyUp={this.SearchQuery} onChange={this.QueryState}/>
+                    <SearchButton onClick="search" type='button'/> 
                     
                 </InputForm>
             </Container>
