@@ -30,15 +30,13 @@ const SearchFont = styled(MainFont)`
 `
 
 const ProductFont = styled.p`
-    position: absolute;
     display: inline-block;
 `
 
 const ImgFont = styled(ProductFont)`
     font-size: 28px;
-    margin-left: -900px;
-    margin-top: 100px;
-`
+`;
+
 
 const TitleFont = styled(ProductFont)`
     font-size: 28px;
@@ -117,6 +115,19 @@ const ProductSite = styled(Block)`
 class DetailPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            title: '삼성 노트북',
+            image: 'https://img.kr.news.samsung.com/kr/wp-content/uploads/2018/12/20181213-pr-notebook-1.jpg',
+            // 최소, 현재, 최대 금액
+            minimum: 1500000,
+            now: 1600000,
+            maximum: 190000,
+            // 현금 사이트, 카드 사이트
+            cashSite: 'https://www.naver.com/',
+            cardSite: 'https://www.google.com/',
+            // 가격 변화[]
+            priceChanges: []
+        }
     }
     render() {
         return (
@@ -130,16 +141,11 @@ class DetailPage extends Component {
 
                 <section>
                     <article>
-                        <ProductTitle/>
-                        <ProductImg/>
-                        <ProductGraph/>
-                        <ProductPrice/>
-                        <ProductSite/>
-                        <TitleFont>Title</TitleFont>
-                        <ImgFont>Img</ImgFont>
-                        <GraphFont>Graph</GraphFont>
-                        <RecentFont>Recent</RecentFont>
-                        <SiteFont>Site</SiteFont>
+                        <section>{ this.state.title }</section>
+                        <section><img src={ this.state.image } width="100px" height="100px"/> </section>
+                        <section>Graph</section>
+                        <section>{ this.state.minimum }{ this.state.now }{ this.state.maximum }</section>
+                        <section>{ this.state.cashSite }{ this.state.cardSite }</section>
                     </article>
                 </section>
 
