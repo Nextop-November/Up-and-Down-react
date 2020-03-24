@@ -4,21 +4,6 @@ import styled , { createGlobalStyle } from 'styled-components';
 import Category from '../components/category';
 import ProductList from '../components/ProductList';
 
-const GlobalStyle = createGlobalStyle`
-    @import url("../font/NanumSquare/nanumsquare.css");
-    html {
-        margin: 0 auto;
-        background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
-        background-repeat:no-repeat;
-        background-size : auto;
-        height: 100%;
-        width : 100%;
-    }
-    body {
-        font-family: 'NanumSquare', sans-serif;
-        color:white;
-    }
-`;
 
 const Container = styled.div`
     
@@ -40,7 +25,6 @@ const ProductInfoTable = styled.table`
     & > tr>th{
         border:1px solid white;
     }
-
 `;
 
 /*
@@ -62,6 +46,10 @@ class SearchView extends React.Component{
     
     constructor(props) {
         super(props); 
+        this.state = {
+            keyword:[],
+
+        }
     }
 
     render() {
@@ -116,16 +104,41 @@ class SearchView extends React.Component{
             },
         ]
             
+        const keywordState = this.state.keyword;
+		const categoryChecked = (event) => {
+			if (event.target.checked) {
+				this.setState({
+					keyword: keywordState.concat(event.target.id),
+				});
+				console.log(keywordState + " : " + event.target.id);
+			}
+			else {
+				keywordState.splice(keywordState.indexOf(event.target.id), 1);
+				this.setState({
+					keyword: keywordState,
+				});
+				
+				console.log(keywordState + " : " + event.target.id);
+			}
+			console.log(keywordState);
+		}
+		// 데이터 HTML로 가공하는 부분
+		const categorySubmit = () => {
+			console.log(keywordState);
+			//console.log(tmp.value);
+		};
 
-        console.log(this.props);
         const getQuery = queryString.parse(this.props.location.search);
-        console.log(getQuery.query);
+
         return(
             <Container>
                 <InputForm>
                 <TitleImg/> <QueryInput type='text' value={getQuery.query}/> <SearchButton type='button'/>
                 </InputForm>
-                <Category CategoryList={CategoryList} />
+                
+				<Category CategoryList={CategoryList}
+					categoryChecked={categoryChecked}
+					categorySubmit={categorySubmit} />
 
                 <ProductList info={ProductInfo} />
             </Container>
@@ -134,3 +147,5 @@ class SearchView extends React.Component{
 };
 
 export default SearchView;
+
+
