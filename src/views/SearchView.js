@@ -2,7 +2,7 @@ import React from 'react';
 import * as queryString from 'query-string';
 import styled , { createGlobalStyle } from 'styled-components';
 import Category from '../components/category';
-
+import ProductList from '../components/ProductList';
 
 const GlobalStyle = createGlobalStyle`
     @import url("../font/NanumSquare/nanumsquare.css");
@@ -82,6 +82,39 @@ class SearchView extends React.Component{
                 options : ['ram-name1','ram-name2']
             },
         ];
+
+        const ProductInfo = 
+        //상품별 데이터
+        [
+            {
+                image: 'https://img.favpng.com/20/13/6/apple-logo-business-iphone-png-favpng-hyzjSfZY66wqwfvuMkgRbVwFw.jpg',
+                name: 'APPLE 맥북에어 MD712KH/A',
+                categories: [
+                    "29.46cm(11.6인치)", "인텔", "코어i5-4세대", "하스웰", "i5-4250U 1.3GHz(2.6GHz)", "듀얼코어", "1366x768", "LPDDR3(온보드)", "4GB", "SSD", "256GB", "HD 5000", "VRAM:시스템메모리공유", "802.11n/ac 무선", "블루투스 4.0", "웹캠", "썬더볼트", "USB 3.0", "USB 2.0", "키보드 라이트", "Mac OS X", "두께: 17mm", "1.08kg", "일반유통상품", "용도: 사무, 휴대용", "맥북에어 리프레시"
+                ],
+                lowest: '50',
+                highest: '100',
+                current: '75'
+            },{
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/LACMTA_Square_Orange_Line.svg/1200px-LACMTA_Square_Orange_Line.svg.png',
+                name: 'B',
+                categories: [
+                    'ads', 'dafs', 'erq'
+                ],
+                lowest: '89',
+                highest: '3489',
+                current: '987'
+            },{
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/LACMTA_Square_Orange_Line.svg/1200px-LACMTA_Square_Orange_Line.svg.png',
+                name: 'C',
+                categories: [
+                    'vc', 'g', 'yyt'
+                ],
+                lowest: '456',
+                highest: '987654567',
+                current: '45678'
+            },
+        ]
             
 
         console.log(this.props);
@@ -94,25 +127,7 @@ class SearchView extends React.Component{
                 </InputForm>
                 <Category CategoryList={CategoryList} />
 
-
-                <ProductInfoTable border cellpadding='10'>
-                    <tr>
-                        <th rowSpan='4'>image</th>
-                        <th colSpan='3'>Product Name</th>
-                    </tr>
-                    <tr>
-                        <th rowSpan='3'>explain</th>
-                        <th>HighPrice</th>
-                        <th rowSpan='3'>SalePercent</th>
-                    </tr>
-                    <tr>
-                        <th>RecentPrice</th>
-                    </tr>
-                    <tr>
-                        <th>LowPrice</th>
-                    </tr>
-
-                </ProductInfoTable>
+                <ProductList info={ProductInfo} />
             </Container>
         );
     }

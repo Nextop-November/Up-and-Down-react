@@ -182,7 +182,7 @@ class ListPage extends Component {
                     <ProductFluctuation/>
                     <TitleFont>Title</TitleFont>
                     <ImgFont>Img</ImgFont>
-                    <GraphFont>Graph</GraphFont>
+                    <GraphFont>Explain</GraphFont>
                     <HighestFont>Highest</HighestFont>
                     <RecentFont>Recent</RecentFont>
                     <LowestFont>Lowest</LowestFont>
