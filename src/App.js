@@ -7,6 +7,7 @@ import SearchView from './views/SearchView';
 
 import DetailPage from './views/DetailPage';
 import category from './components/category';
+import Graph from './views/Graph'
 
 const GlobalStyle = createGlobalStyle`
     @import url("../font/NanumSquare/nanumsquare.css");

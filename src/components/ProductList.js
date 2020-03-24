@@ -1,14 +1,3 @@
-/*
-[{
-    image
-    name
-    categories: []
-    lowest:
-    highest:
-    current:
-}]
-*/
-
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
@@ -19,7 +8,7 @@ const Main = styled.div`
 `
 
 const ProductTable = styled.table`
-    width: 1700px;
+    width: 100%;
     margin: 0 0 20px 0;
     & > tr > th{
         border: 1px solid white;

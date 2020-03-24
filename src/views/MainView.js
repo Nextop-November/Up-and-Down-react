@@ -3,7 +3,7 @@ import styled , { createGlobalStyle } from 'styled-components';
 import logo from '../images/title2.png';
 import SearchIcon from '../images/searchIcon2.png';
 import * as queryParser from 'query-string';
-
+import Graph from './Graph'
 
 
 
@@ -85,14 +85,71 @@ class MainView extends Component {
     }
 
      render() {
+         const data = [
+            {
+              "id": "japan",
+              "color": "hsl(100, 100%, 85%)",
+              "data": [
+                {
+                  "x": "plane",
+                  "y": 187
+                },
+                {
+                  "x": "helicopter",
+                  "y": 168
+                },
+                {
+                  "x": "boat",
+                  "y": 138
+                },
+                {
+                  "x": "train",
+                  "y": 208
+                },
+                {
+                  "x": "subway",
+                  "y": 174
+                },
+                {
+                  "x": "bus",
+                  "y": 272
+                },
+                {
+                  "x": "car",
+                  "y": 192
+                },
+                {
+                  "x": "moto",
+                  "y": 187
+                },
+                {
+                  "x": "bicycle",
+                  "y": 159
+                },
+                {
+                  "x": "horse",
+                  "y": 280
+                },
+                {
+                  "x": "skateboard",
+                  "y": 28
+                },
+                {
+                  "x": "others",
+                  "y": 49
+                }
+              ]
+            }
+          ];
         return (
             <Container>
                 <TitleImg src={logo}/>
                 <InputForm>
                     <QueryInput id='query' autoComplete='off' type='text'onKeyUp={this.SearchQuery} onChange={this.QueryState}/>
                     <SearchButton onClick="search" type='button'/> 
-                    
+                    <Graph data={data} />
                 </InputForm>
+                
             </Container>
         )
     }
